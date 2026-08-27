@@ -1,6 +1,7 @@
 name: Hello Spring Boot App to Docker
 
-on: push
+on: 
+  push
 
 jobs:
   build-test:
