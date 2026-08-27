@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        run: echo "
+        run: echo ""
 
       - name: Setup JDK
         run: echo ""
