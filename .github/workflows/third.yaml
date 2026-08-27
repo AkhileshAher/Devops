@@ -1,0 +1,57 @@
+name: thirdyaml
+
+on:
+  push:
+
+jobs:
+    ci-pipeline:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Install Dependencies
+              run: |
+                echo "Installing dependencies..."
+                echo "Dependencies installed successfully."
+            
+            - name: Run Tests
+              run: |
+                echo "Running tests..."
+                echo "Tests completed successfully."
+            
+            - name: Build Project
+              run: |
+                echo "Building project..."
+                echo "Project built successfully."
+
+            - name: Package Project
+              run: |
+                echo "Packaging project..."
+                echo "Project packaged successfully."
+
+            - name: Docker Build
+              run: |
+                echo "Building Docker image..."
+                echo "Docker image built successfully."
+            
+            - name: Docker Push
+              run: |
+                echo "Pushing Docker image to registry..."
+                echo "Docker image pushed successfully."
+
+            - name: Final Status
+              run: |
+                echo "CI pipeline completed successfully."
+
+            - name: Intentional Failure
+              run: |
+                echo "This step is intentionally failing to test error handling."
+                exit 1
+
+            - name: Post-Failure Step
+              if: failure()
+              run: |
+                echo "The previous step failed. Performing cleanup and logging."
+                echo "Cleanup completed."
