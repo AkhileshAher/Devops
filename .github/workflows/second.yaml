@@ -2,6 +2,8 @@ name: Second Workflow
 
 on:
   push:
+    branches:
+      - "update"
 
 jobs:
   build:

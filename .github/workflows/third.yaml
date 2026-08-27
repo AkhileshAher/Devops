@@ -1,7 +1,8 @@
 name: thirdyaml
 
 on:
-  push:
+#   push:
+    workflow_dispatch:
 
 jobs:
     ci-pipeline:

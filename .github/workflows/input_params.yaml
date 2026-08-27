@@ -1,0 +1,20 @@
+name: uploadFile
+
+on:
+  workflow_dispatch
+
+jobs:
+    uploadartifact:
+        runs-on: ubuntu-latest
+    
+        steps:
+            - name: Create Demo File
+              run: |
+                echo "This is a demo file for upload." > demo.txt
+                echo "Demo file created successfully."
+
+            - name: upload-Demo
+              uses: actions/upload-artifact@v4
+              with:
+                name: build-artifact-demo
+                path: .
