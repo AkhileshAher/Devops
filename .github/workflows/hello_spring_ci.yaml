@@ -17,14 +17,14 @@ jobs:
           java-version: "21"
 
       - name: Build and Test (Maven)
-        working-directory: /hello-spring
+        working-directory: ./hello-spring
         run: mvn -B clean verify
 
       - name: Upload Test Reports
         uses: actions/upload-artifact@v7
         with:
           name: test-reports
-          path: hello-spring/target/surefire-reports
+          path: ./hello-spring/target/surefire-reports
 
   docker-build-push:
     runs-on: ubuntu-latest
