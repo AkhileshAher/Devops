@@ -1,0 +1,43 @@
+name: Hello Spring Boot App to Docker
+
+on: push
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Build and Test (Maven)
+        run: echo ""
+
+      - name: Upload Test Reports
+        run: echo ""
+
+  docker-build-push:
+    runs-on: ubuntu-latest
+    needs: build-test
+
+    steps:
+      - name: Checkout Code
+        run: echo "
+
+      - name: Setup JDK
+        run: echo ""
+
+      - name: Build JAR for Docker
+        run: echo ""
+
+      - name: Login To DockerHub
+        run: echo ""
+
+      - name: Build and Push Docker Image
+        run: echo ""
