@@ -35,13 +35,24 @@ jobs:
         run: echo ""
 
       - name: Setup JDK
-        run: echo ""
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
 
       - name: Build JAR for Docker
-        run: echo ""
+        working-directory: ./hello-spring
+        run: mvn -B clean package -DskipTests
 
       - name: Login To DockerHub
-        run: echo ""
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Push Docker Image
-        run: echo ""
+        uses: docker/build-push-action@v7
+        with:
+          push: true
+          tags: user/app:latest
