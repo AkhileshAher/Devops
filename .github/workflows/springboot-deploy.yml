@@ -19,9 +19,11 @@ jobs:
           java-version: '21'
           
       - name: Grant execute permission for Maven wrapper
+        working-directory: ./hello-spring
         run: chmod +x mvnw
 
       - name: Build Jar
+        working-directory: ./hello-spring
         run: ./mvnw clean package -DskipTests
 
       - name: Login to Docker
