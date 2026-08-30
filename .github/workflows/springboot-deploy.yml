@@ -34,7 +34,7 @@ jobs:
         run: docker push ${{ vars.DOCKER_USERNAME }}/spring-boot-ci-demo:latest
 
       - name: SSH and Deploy to ec2
-        uses: appleboy/ssh-actions@v1
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
